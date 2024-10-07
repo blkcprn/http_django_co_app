@@ -1,0 +1,17 @@
+Django
+Pillow
+python-decouple
+celery
+redis
+django-jazzmin
+django-debug-toolbar
+django-ckeditor-5
+django-mptt
+factory-boy
+Faker
+pytest
+pytest-django
+pytest-factoryboy
+python-magic
+selenium
+six
