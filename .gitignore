@@ -8,7 +8,7 @@ company_test_db.sqlite3
 /cache/*
 /screenshot
 /tmp
-
+/layout
 
 **/migrations/*
 !**/migrations/__init__.py
