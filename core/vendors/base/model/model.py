@@ -19,13 +19,13 @@ class BasicModel(ProtocolModel, models.Model):
     pass
 
 
-class BaseModel(BasicModel):
+class BaseModel(BasicModel, models.Model):
     """Base model."""
     is_valid = models.BooleanField(
-        default=True,
+        default=True
     )
     is_blocked = models.BooleanField(
-        default=False,
+        default=False
     )
 
     @property
