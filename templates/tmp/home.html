@@ -1,0 +1,322 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'images/icon.png' %}"/>
+    <title>Index</title>
+    <link href="{% static 'styles/main.css' %}" rel="stylesheet">
+    <script defer="defer" src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="header__top">
+            <div class="container header__top-inner">
+                <ul class="inform">
+                    <li>
+                        <a href="#" aria-label="Go to instagram">
+                            <i class="svg-instagram"></i>300K Followers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="Go to facebook">
+                            <i class="svg-facebook"></i>300K Followers
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Blog<button aria-expanded="false" aria-controls="blog" 
+                            class="dropdown__toggle"><i class="svg-chevron-down dropdown__chevron"></i>
+                            </button>
+                        </a>
+                        <ul id="blog" class="dropdown__content z-up tree__content sublist" aria-hidden="true"> 
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                            <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="options">
+                    <li class="dropdown">
+                        <button class="dropdown__toggle options__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="language">en<i class="svg-chevron-down dropdown__chevron"></i>
+                        </button>
+                        <ul id="language" class="dropdown__content z-up sublist options__list" aria-hidden="true"> 
+                            <li><a href="#" tabindex="-1" class="active">en</a></li>
+                            <li><a href="#" tabindex="-1">ru</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown__toggle options__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="currency">usd<i class="svg-chevron-down dropdown__chevron"></i>
+                        </button>
+                        <ul id="currency" class="dropdown__content z-up sublist options__list" aria-hidden="true"> 
+                            <li><a href="#" tabindex="-1" class="active">usd</a></li>
+                            <li><a href="#" tabindex="-1">rub</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="user__link" aria-label="Got to user cabinet">
+                            <i class="svg-person"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header__main">
+            <div class="container header__main-inner">
+                <nav class="menu">
+                    <a href="#" class="logo">TheCompany</a>
+                    <button class="menu__trigger" data-open-btn 
+                        data-target="mobileMenu"><i class="svg-list"></i></button>
+                    <ul class="menu__list">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li class="dropdown bigmenu">
+                            <a href="#">Shop<button aria-expanded="false" aria-controls="shop" 
+                                class="dropdown__toggle"><i class="svg-chevron-down dropdown__chevron"></i>
+                                </button>
+                            </a>
+                            <div id="shop" class="dropdown__content bigmenu__wrapper z-up" aria-hidden="true">
+                                <div class="container bigmenu__content bigmenu__list">
+                                    <ul class="featureds__list">
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                    <ul class="menus__list">
+                                        <li>
+                                            <h3 class="menus__title"><a href="#">Lorem, ipsum.</a></h3>
+                                            <ul class="menus__menu">
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h3 class="menus__title"><a href="#">Lorem, ipsum.</a></h3>
+                                            <ul class="menus__menu">
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h3 class="menus__title"><a href="#">Lorem, ipsum.</a></h3>
+                                            <ul class="menus__menu">
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h3 class="menus__title"><a href="#">Lorem, ipsum.</a></h3>
+                                            <ul class="menus__menu">
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                                <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+                <ul class="shop-icons">
+                    <li class="shop-icons__item">
+                        <button data-open-btn data-target="searchModal" aria-label="Open search form">
+                            <i class="svg-search"></i>
+                        </button>
+                    </li>
+                    <li class="shop-icons__item">
+                        <button  data-open-btn data-target="wishModal" aria-label="Add to wish list">
+                            <i class="svg-heart"></i>
+                        </button>
+                        <span class="shop-icons__qty">3</span>
+                    </li>
+                    <li class="shop-icons__item">
+                        <button  data-open-btn data-target="compareModal" aria-label="Add to compare list">
+                            <i class="svg-shuffle"></i>
+                        </button>
+                        <span class="shop-icons__qty">3</span>
+                    </li>
+                    <li class="shop-icons__item">
+                        <button  data-open-btn data-target="bagModal" aria-label="Add to bag">
+                            <i class="svg-bag"></i>
+                        </button>
+                        <span class="shop-icons__qty">3</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main id="main" class="main">
+        <section class="container hero">
+            <div class="swiper hero__swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hero__slide">
+                            first slide
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero__slide">
+                            second slide
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero__slide">
+                            third slide
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </section>
+        <section>
+            <div class="showcase">
+                <div class="showcase__images">
+                    <picture class="showcase__image ">
+                        <source srcset="{% static 'images/image.webp' %}" type="image/webp">
+                        <source srcset="{% static 'images/image.jpg' %}" type="image/jpeg"> 
+                        <img src="{% static 'images/image.jpg' %}">
+                    </picture>
+                    <picture class="showcase__image showcase__image--hover">
+                        <source srcset="{% static 'images/image.webp' %}" type="image/webp">
+                        <source srcset="{% static 'images/image.jpg' %}" type="image/jpeg"> 
+                        <img src="{% static 'images/image.jpg' %}">
+                    </picture>
+                    <span class="showcase__discount">25%</span>
+                    <button class="showcase__bag btn-light"><i class="svg-bag"></i></button>
+                </div>
+                <div class="showcase__info">
+                    <h3 class="showcase__title">Lorem, ipsum dolor.</h3>
+                    <ul class="showcase__price">
+                        <li class="showcase__price--before">$115.00</li>
+                        <li class="showcase__price--current">$86.25</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="footer">
+        <div class="footer__top">
+            <div class="container footer__top-inner">
+                <div class="footer__mode">
+                    <label for="mode-btn" class="mode-trigger"></label>
+                    <input id="mode-btn" type="checkbox" aria-pressed="false">
+                </div>
+            </div>
+        </div>
+        <div class="footer__top">
+            <div class="container footer__main-inner">
+            </div>
+        </div>
+    </footer>
+    <div class="overlay"></div>
+    <div id="mobileMenu" class="modal mobile-menu">
+        <button class="modal__close-btn" data-close-btn><i class="svg-x"></i></button>
+        <div class="mobile-menu__menu">
+            <ul class="mobile-menu__list">
+                <li><a href="#" tabindex="-1" class="active">Home</a></li>
+                <li class="dropdown accordion" data-except-event="hover">
+                    <h3 class="mobile-menu__title">
+                        <a href="#" tabindex="-1">Shop</a>
+                        <button aria-expanded="false" aria-controls="m-shop" 
+                            class="dropdown__toggle"><i class="svg-chevron-down dropdown__chevron"></i>
+                        </button>
+                    </h3>
+                    <ul id="m-shop" class="dropdown__content accordion__content" aria-hidden="true">
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" tabindex="-1">About</a></li>
+                <li class="dropdown accordion" data-except-event="hover">
+                    <h3 class="mobile-menu__title">
+                        <a href="#"  tabindex="-1">Blog</a>
+                        <button aria-expanded="false" aria-controls="m-blog" 
+                            class="dropdown__toggle"><i class="svg-chevron-down dropdown__chevron"></i>
+                        </button>
+                    </h3>
+                    <ul id="m-blog" class="dropdown__content accordion__content" aria-hidden="true">
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                        <li><a href="#" tabindex="-1">Lorem, ipsum dolor.</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="enter">
+            <a class="btn-light" href="#" tabindex="-1">Sign In</a>
+            <a class="btn-dark" href="#" tabindex="-1">Sign Up</a>
+        </div>
+    </div>
+    <div id="searchModal" class="modal search-modal">
+        <button class="modal__close-btn" data-close-btn><i class="svg-x"></i></button>
+        <form action="#" class="search-form">
+            <span class="search-form__icon disabled"><i class="svg-arrow-right"></i></span>
+            <input type="search" class="search-form__input" placeholder="search">
+            <button class="search-form__icon search-form__submit" type="submit">
+                <i class="svg-search"></i>
+            </button>
+        </form>
+    </div>
+    <div id="wishModal" class="modal wish-modal">
+        <button class="modal__close-btn" data-close-btn><i class="svg-x"></i></button>
+        <div class="wish-modal__content">
+            <ul class="wish-modal__list"></ul>
+        </div>
+    </div>
+    <div id="compareModal" class="modal compare-modal">
+        <button class="modal__close-btn" data-close-btn><i class="svg-x"></i></button>
+        <div class="compare-modal__content">
+            <ul class="compare-modal__list"></ul>
+        </div>
+    </div>
+    <div id="bagModal" class="modal bag-modal">
+        <button class="modal__close-btn" data-close-btn><i class="svg-x"></i></button>
+        <div class="bag-modal__content">
+            <ul class="bag-modal__list"></ul>
+        </div>
+    </div>
+</body>
+</html>
+

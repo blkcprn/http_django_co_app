@@ -3,11 +3,11 @@ company_test_db.sqlite3
 log/*
 cache/*
 media/*
-tmp/
 layout/
 
 **/migrations/*
 !**/migrations/__init__.py
+/tmp
 
 **/__pycache__/
 

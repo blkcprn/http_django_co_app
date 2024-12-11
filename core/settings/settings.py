@@ -10,17 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from .paths import BASE_DIR
+from decouple import config
+from .paths import (
+    BASE_DIR,
+    TEMPLATES_DIR,
+    CACHE_DIR,
+    LOCALE_DIR,
+    STATIC_DIR,
+    MEDIA_DIR,
+    URL_STATIC,
+    URL_MEDIA,
+)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-zb+m!2+(n88dxz2$pf7723^zfrdxgjwzdp)s%u54^-&0*sh@bh"
+SECRET_KEY = config("SECRET_KEY", "django-insecure-zb+m!2+(n88dxz2$pf7723^zfrdxgjwzdp)s%u54^-&0*sh@bh")
 
 # SECURITY WARNING: don"t run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -36,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # apps
     "apps.account.apps.AccountConfig",
+    "apps.company.apps.CompanyConfig",
 ]
 
 MIDDLEWARE = [
@@ -53,7 +64,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [TEMPLATES_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -102,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
 
 TIME_ZONE = "UTC"
 
@@ -110,11 +121,27 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    LOCALE_DIR,
+]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = URL_STATIC
+
+if DEBUG:
+    STATICFILES_DIRS = [
+        STATIC_DIR,
+    ]
+else:
+    STATIC_ROOT =  STATIC_DIR
+
+MEDIA_URL = URL_MEDIA
+
+MEDIA_ROOT = MEDIA_DIR
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -123,3 +150,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 AUTH_USER_MODEL = "account.Account"
+
+
+LOGIN_URL = "cauth:login"
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': CACHE_DIR
+    }
+}
