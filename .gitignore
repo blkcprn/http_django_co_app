@@ -8,6 +8,7 @@ company_test_db.sqlite3
 /media/*
 /cache/*
 /tmp
+/layout
 
 **/migrations/*
 !**/migrations/__init__.py

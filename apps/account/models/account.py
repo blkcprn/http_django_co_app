@@ -1,9 +1,14 @@
 from django.db import models
+from core.vendors import messages as msg
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import (
     AbstractBaseUser, 
     PermissionsMixin,
+)
+from core.vendors.base.model import (
+    BaseModel, 
+    BaseQuerySet,
 )
 
 
@@ -26,13 +31,13 @@ class AccountManager(BaseUserManager):
         extra_fields.setdefault("is_active", True)
 
         if extra_fields.get("is_staff") is not True:
-            raise ValueError(_("Superuser must have is_staff=True."))
+            raise ValueError(msg.NOT_STAFF)
         if extra_fields.get("is_superuser") is not True:
-            raise ValueError(_("Superuser must have is_superuser=True."))
+            raise ValueError(msg.NOT_SUPERUSER)
         return self.create_user(username, email, password, **extra_fields)
 
 
-class Account(AbstractBaseUser, PermissionsMixin):
+class Account(AbstractBaseUser, PermissionsMixin, BaseModel):
     """Account model."""
     username = models.CharField(
         max_length=80,
