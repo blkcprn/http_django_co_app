@@ -9,13 +9,12 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import sys
 from decouple import config
 from .paths import (
     BASE_DIR,
     TEMPLATES_DIR,
     CACHE_DIR,
-    LOG_DIR,
     LOCALE_DIR,
     STATIC_DIR,
     MEDIA_DIR,
@@ -32,9 +31,15 @@ SECRET_KEY = config("SECRET_KEY", "django-insecure-_o-49*6cn^&)d+^ea7%_!sryf^av-
 
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
+TESTING = "test" in sys.argv
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -46,8 +51,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # apps
-    "apps.account.apps.AccountConfig",
+    "apps.accounts.apps.AccountsConfig",
+    "apps.pages.apps.PagesConfig",
+    # extensions
 ]
+if DEBUG and not TESTING:
+    INSTALLED_APPS.append("debug_toolbar")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -58,6 +67,11 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+if DEBUG and not TESTING:
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+        *MIDDLEWARE,
+    ]
 
 ROOT_URLCONF = "core.urls"
 
@@ -113,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
 
 TIME_ZONE = "UTC"
 
@@ -133,7 +147,7 @@ STATIC_URL = URL_STATIC
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-AUTH_USER_MODEL = "account.Account"
+AUTH_USER_MODEL = "accounts.Account"
 
 
 LOGIN_URL = "cauth:login"
