@@ -52,14 +52,14 @@ class BaseModel(models.Model):
         blank=True
     )
     creator = models.ForeignKey(
-        "accounts.Account",
+        "account.Account",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name="%(app_label)s_%(class)s_creator",
     )
     updater = models.ForeignKey(
-        "accounts.Account",
+        "account.Account",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,

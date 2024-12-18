@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # apps
-    "apps.accounts.apps.AccountsConfig",
-    "apps.pages.apps.PagesConfig",
+    "apps.account.apps.AccountConfig",
+    "apps.cauth.apps.CauthConfig",
+    "apps.page.apps.PageConfig",
+    "apps.company.apps.CompanyConfig",
     # extensions
 ]
 if DEBUG and not TESTING:
@@ -147,7 +149,7 @@ STATIC_URL = URL_STATIC
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-AUTH_USER_MODEL = "accounts.Account"
+AUTH_USER_MODEL = "account.Account"
 
 
 LOGIN_URL = "cauth:login"
