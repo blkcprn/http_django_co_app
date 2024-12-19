@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import sys
+from ..vendors.data import LANGUAGE_LIST
 from decouple import config
 from .paths import (
     BASE_DIR,
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     "apps.cauth.apps.CauthConfig",
     "apps.page.apps.PageConfig",
     "apps.company.apps.CompanyConfig",
+    "apps.error.apps.ErrorConfig",
     # extensions
 ]
 if DEBUG and not TESTING:
@@ -63,11 +65,15 @@ if DEBUG and not TESTING:
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # apps
+    "apps.company.middlewares.set_useragent_in_request_middleware",
+    "apps.company.middlewares.set_locale_from_session_middleware",
 ]
 if DEBUG and not TESTING:
     MIDDLEWARE = [
@@ -129,7 +135,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en"
+AVAILABLE_LANGUAGE_CODES = ["ru", "en"]
+
+LANGUAGE_CODE = AVAILABLE_LANGUAGE_CODES[0]
+
+LANGUAGES = [(lang.iso, lang.name) for lang in LANGUAGE_LIST if lang.iso in AVAILABLE_LANGUAGE_CODES]
+
+LANGUAGE_COOKIE_NAME = "language"
+
+SESSION_LANGUAGE_KEY = "current_language"
 
 TIME_ZONE = "UTC"
 
@@ -137,6 +151,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    LOCALE_DIR,
+]
+
+AVAILABLE_CURRENCY_CODES = ["RUB", "USD"]
+
+CURRENCY_CODE = AVAILABLE_CURRENCY_CODES[0]
+
+SESSION_CURRENCY_KEY = "current_currency"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -153,4 +176,6 @@ AUTH_USER_MODEL = "account.Account"
 
 
 LOGIN_URL = "cauth:login"
+
+HOME_URL = "company:home"
 

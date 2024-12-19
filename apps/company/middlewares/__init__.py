@@ -1,0 +1,2 @@
+from .useragent import set_useragent_in_request_middleware
+from .locale import set_locale_from_session_middleware
