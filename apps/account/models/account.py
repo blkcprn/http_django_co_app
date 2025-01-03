@@ -42,6 +42,7 @@ class AccountManager(BaseUserManager):
             password=password,
         )
         user.is_admin = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
@@ -68,3 +69,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_admin
+    
+    def is_usable(self, **kwargs) -> tuple:
+        """Check account, is_active, is_confirmed are True."""
+        pass
