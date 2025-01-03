@@ -8,6 +8,10 @@ from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
 )
+from core.vendors.base.model import (
+    Usable,
+    BaseModel,
+)
 
 
 class AccountManager(BaseUserManager):
@@ -51,7 +55,7 @@ class AccountManager(BaseUserManager):
         pass
 
 
-class Account(AbstractBaseUser, PermissionsMixin):
+class Account(AbstractBaseUser, PermissionsMixin, BaseModel):
     username = models.CharField(max_length=80, unique=True, db_index=True)
     email = models.EmailField(max_length=255, unique=True, db_index=True)
     is_active = models.BooleanField(default=True)
@@ -69,7 +73,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_admin
-    
-    def is_usable(self, **kwargs) -> tuple:
+
+    def is_usable(self, **kwargs) -> Usable:
         """Check account, is_active, is_confirmed are True."""
         pass
