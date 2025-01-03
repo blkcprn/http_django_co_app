@@ -12,6 +12,7 @@ media/*
 *.log
 *.pyc
 
+info.txt
 .flake8
 
 # Byte-compiled / optimized / DLL files

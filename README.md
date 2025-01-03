@@ -1,1 +1,1 @@
-# http_django_co_app
+# Web app for small company
